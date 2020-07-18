@@ -1,11 +1,14 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose'),
+    url = process.env.MONGODB || `mongodb://localhost:27017/API`
 
-mongoose.connect(`mongodb://localhost:27017/`, {
+mongoose.connect(url, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
 }).then(() => {
-    console.log('[db] connection successfully')
+    console.log('[db] conectada con exito washiiiin como es papi')
 })
-    .catch(err => console.log('[db]', err))
+    .catch(err => console.log('[db] ', err))
 
 module.exports = mongoose

@@ -11,13 +11,15 @@ const schemas = {
     productSchema: new Schema({
         name: String,
         picture: String,
-        price: {type: Number, default: 0},
-        category: {type: String, enum: ['Technology', 'Clothes', 'Home appliances', 'Others', 'Automobiles']},
+        price: { type: Number, default: 0 },
+        category: { type: String, enum: ['Technology', 'Clothes', 'Home appliances', 'Others', 'Automobiles'] },
         description: String
     })
 }
 
 const models = {
     User: mongoose.model('users', schemas.userSchema),
-    Product: mongoose.model('Product', schemas.Product)
+    Product: mongoose.model('Product', schemas.productSchema)
 }
+
+module.exports = models
