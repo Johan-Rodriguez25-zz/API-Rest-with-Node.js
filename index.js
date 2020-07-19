@@ -1,13 +1,13 @@
 const express = require('express'),
     bodyParse = require('body-parser'),
     router = require('./routes/routes'),
-    app = express(),
-    port = process.env.PORT || 4000
+    config = require('./config/config'),
+    app = express()
 
 app.use(bodyParse.json())
 app.use(bodyParse.urlencoded({ extended: false }))
 app.use('/', router)
 
-app.listen(port, () => {
-    console.log('Listening on port', port)
+app.listen(config.port, () => {
+    console.log('Listening on port', config.port)
 })

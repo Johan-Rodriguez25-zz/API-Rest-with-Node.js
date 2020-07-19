@@ -1,13 +1,13 @@
 const mongoose = require('mongoose'),
-    url = process.env.MONGODB || `mongodb://localhost:27017/API`
+    config = require('../config/config')
 
-mongoose.connect(url, {
+mongoose.connect(config.url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: false
 }).then(() => {
-    console.log('[db] conectada con exito washiiiin como es papi')
+    console.log('[db] connection successfully')
 })
     .catch(err => console.log('[db] ', err))
 
