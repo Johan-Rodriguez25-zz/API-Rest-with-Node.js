@@ -5,7 +5,7 @@ const router = require('express-promise-router')(),
 
 router.get('/product', productControl.getProducts)
 router.get('/product/:productId', productControl.getProduct)
-router.post('/product', productControl.saveProduct)
+router.post('/product', auth.verifyToken, productControl.saveProduct)
 router.put('/product/:productId', auth.verifyToken, productControl.updateProduct)
 router.delete('/product/:productId', auth.verifyToken, productControl.deleteProduct)
 
