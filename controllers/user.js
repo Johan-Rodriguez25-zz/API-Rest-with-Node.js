@@ -24,7 +24,6 @@ module.exports = {
             const token = jwt.sign({ id: user._id }, config.secretToken, { expiresIn: 60 * 60 * 24 })
             res.status(200).json({ message: 'Se ha logueado correctamente', auth: true, token })
         }
-        res.status(200).json({ message: 'Se ha logueado correctamente' })
     },
 
     logOut: async (req, res, next) => {
